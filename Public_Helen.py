@@ -48,8 +48,8 @@ stock_code = ['xau-usd']
 # API access and Cryptos
 
 # API key and secret
-API_KEY = "EDuPNkhJ8AogEzSnFtrhqWZ9JMdhtzSggPgzqG0djSsXwzYlx8CD4sGL5Y4RhePr"
-API_SECRET = "pidSBo5hkKmMXT6M2pZxbEldnUgWFwMUeZXotDJ7QwHxvf5hX3SF9QBWftSjyZwj"
+API_KEY = "fill in your API Key"
+API_SECRET = "fill in your API secret"
 
 # Logging
 lg.basicConfig(level=lg.INFO)
@@ -92,7 +92,7 @@ list_crypto = ["ETH", "BNB"]
 time_now = t.strftime("%Y-%m-%d %H:%M:%S")
 
 # Work can do
-do_list = ["1. food", "2. time", "3. calculation", "4. Bitcoin price", "5. other Crypto prices", "6. AUX/USD"]
+do_list = ["1. food", "2. time", "3. interest rate calculation", "4. Bitcoin price", "5. other Crypto prices", "6. AUX/USD"]
 
 # Create a list of foods
 food = ["Pizza", "Hủ Tiếu", "Phở", "Bánh mì", "Burger"]
@@ -118,8 +118,31 @@ if "food" in command or "1" in command:
     print(rd.choice(food))
 
 # Check if the user wants to help do the calculation
-if "calculation" in command or "3" in command:
-    print("Please write down your calculation")
+if "interest rate calculation" in command or "3" in command:
+    print("Please fill in")
+    #interest rate calculation
+
+    P0 = int(float(input("Please fill in your initial deposit $")))
+    I = int(float(input("Please fill in your annualy interest rate %")))
+
+    type = input("what kind of periods you want to do: 1. week, 2. month, 3. year ?")
+    if "week" in type or "1" in type:
+        n = float(input("Please fill in number of weeks"))
+    elif "month" in type or "2" in type:
+        n = float(input("Please fill in number of months"))
+    elif "year" in type or "3" in type:
+        n = float(input("Please fill in number of years"))
+
+    if "week" in type or "1" in type:
+        I = int(float(I)) / 52
+    elif "month" in type or "2" in type:
+        I = int(float(I)) / 12
+    elif "year" in type or "2" in type:
+        I = int(float(I))
+
+    FV = int(P0 * (1+I/100) ** int(n))
+
+    print("Here is the money you will receive $", FV)
     
 # Check if the user wants to know the current Bitcoin price
 if "Bitcoin price" in command or "4" in command:
