@@ -5,5 +5,5 @@ Targets (in 2 months):
 - Helen will able to display all of stock price, commodities and cryptos
 - Helen are able to do Fundamental analysis (Macro analysis)
 - Helen are able to do Technical analysis (Machine learning)
-- Build an UI/UX for Helen so that every one can interact with Helen
+- Build an UI/UX for Helen so that users can interact with Helen
 
